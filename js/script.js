@@ -11,18 +11,18 @@ getLocalStorage();
 function getLocalStorage() {
     const todoStorage = localStorage.getItem('todoItems');
     if (todoStorage) {
-        todoItems = JSON.parse(todoStorage);
-        createScreenList(todoItems);
+        todoItems = JSON.parse(todoStorage);    //get the array stored in localstorage
+        createScreenList(todoItems);            //build the html for each entry in the array
     }
     else
         todoItems = [];
 }
 
 function setLocalStorage(todoItems) {
-    localStorage.setItem('todoItems', JSON.stringify(todoItems));
+    localStorage.setItem('todoItems', JSON.stringify(todoItems));   //store the array in localstorage
 }
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', function (e) {      //Adding a new entry?
     e.preventDefault();
     getLocalStorage();
     const itemName = itemInput.value;
